@@ -1,0 +1,23 @@
+Router# configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)# hostname R1
+R1(config)# enable secret class
+R1(config)# line console 0
+R1(config-line)# password cisco
+R1(config-line)# login
+R1(config-line)# exit
+R1(config)# line vty 0 4
+R1(config-line)# password cisco
+R1(config-line)# login
+R1(config-line)# exit
+R1(config)# service password-encryption
+R1(config)#
+R1(config)# banner motd #Authorized Access Only!#
+R1(config)#
+R1# copy running-config startup-config
+
+
+R1(config)# interface loopback 0
+R1(config-if)# ip address 10.0.0.1 255.255.255.0
+R1(config-if)# exit
+R1(config)#
